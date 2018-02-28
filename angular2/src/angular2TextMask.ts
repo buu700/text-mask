@@ -39,7 +39,7 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   constructor(@Inject(Renderer) private renderer: Renderer, @Inject(ElementRef) private element: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    this.setupMask(true)
+    this.setupMask(this.textMaskConfig === undefined)
     if (this.textMaskInputElement !== undefined) {
       this.textMaskInputElement.update(this.inputElement.value)
     }
